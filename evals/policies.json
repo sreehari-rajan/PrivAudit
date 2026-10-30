@@ -1,0 +1,125 @@
+{
+  "criteria": {
+    "download": "HTTP 2xx HTML page from the same site, decoded completely within the raw page limit and under 15 seconds.",
+    "extraction": "Every required heading and anchor phrase (spread from start to end, including previously dropped policy text) is present; no listed site boilerplate is present.",
+    "ai": "Runs the app's own pipeline (assessment, one targeted repair pass for unverifiable quotations, verification, scoring). Schema-valid output with all 10 categories and all 8 fixed regional checks; at least 90% of the final AI-supplied quotations match the source verbatim (word-for-word; only whitespace and curly-versus-straight quote marks may differ, and the stored excerpt is the exact source text), with the pre-repair rate also reported; every critical category is supported by a verified quotation; an overall score is produced; total time under 120 seconds."
+  },
+  "policies": [
+    {
+      "name": "duckduckgo",
+      "url": "https://duckduckgo.com/privacy",
+      "requiredHeadings": ["Privacy Policy"],
+      "requiredPhrases": [
+        "has been an independent company since our founding in 2008",
+        "we also prevent our hosting and content providers from creating a history",
+        "For optional features, we only request personal information necessary for the feature to function",
+        "If you voluntarily provide personal information to us directly, we protect and limit its use",
+        "Privacy laws in some jurisdictions provide certain rights with respect to the limited personal information"
+      ],
+      "forbiddenPhrases": ["At DuckDuckGo, we believe the best way to protect your personal information", "Advertise on Search"]
+    },
+    {
+      "name": "mozilla",
+      "url": "https://www.mozilla.org/en-US/privacy/",
+      "requiredHeadings": [
+        "Mozilla Privacy Policy",
+        "How do we learn information about you?",
+        "When do we share your information with others?",
+        "How do we store and protect your personal information?",
+        "Contact Mozilla"
+      ],
+      "requiredPhrases": [
+        "\"personal information\" means information which either directly identifies you",
+        "When you give us information, we will use it in the ways for which you've given us permission",
+        "If our organizational structure or status changes",
+        "If you want to make a correction to your information",
+        "If you are under 13, we don't want your personal information",
+        "To review and comment on proposed changes to our privacy policies"
+      ],
+      "forbiddenPhrases": ["Portions of this content are", "Follow @Firefox"]
+    },
+    {
+      "name": "apple",
+      "url": "https://www.apple.com/legal/privacy/en-ww/",
+      "requiredHeadings": [
+        "Apple Privacy Policy",
+        "Your Privacy Rights at Apple",
+        "Apple's Sharing of Personal Data",
+        "Children and Personal Data",
+        "Transfer of Personal Data Between Countries",
+        "Privacy Questions"
+      ],
+      "requiredPhrases": [
+        "Precise location only to support services such as Find My",
+        "To comply with applicable law",
+        "If you prefer that Apple not use cookies, we provide you with the means to disable their use",
+        "Apple's international transfer of personal data collected in the European Economic Area",
+        "If you have questions about Apple's Privacy Policy or privacy practices"
+      ],
+      "forbiddenPhrases": ["More ways to shop", "Choose another country or region to see content specific"]
+    },
+    {
+      "name": "google",
+      "url": "https://policies.google.com/privacy",
+      "requiredHeadings": [
+        "Information Google collects",
+        "Why Google collects data",
+        "Your privacy controls",
+        "Sharing your information",
+        "Keeping your information secure",
+        "Retaining your information",
+        "Changes to this policy"
+      ],
+      "requiredPhrases": [
+        "When you use our services, you're trusting us with your information",
+        "We use your information to deliver our services, like processing the terms you search for",
+        "We review our information collection, storage, and processing practices, including physical security measures",
+        "The information practices of other companies and organizations that advertise our services"
+      ],
+      "forbiddenPhrases": []
+    },
+    {
+      "name": "microsoft",
+      "url": "https://www.microsoft.com/en-us/privacy/privacystatement",
+      "requiredHeadings": [
+        "Personal data we collect",
+        "How we use personal data",
+        "Reasons we disclose personal data",
+        "How to access and control your personal data",
+        "Collection of data from children",
+        "Changes to this privacy statement",
+        "How to contact us"
+      ],
+      "requiredPhrases": [
+        "Where required, we obtain your consent before placing or using optional cookies",
+        "Not all personal data processed by Microsoft can be accessed or controlled via the tools above",
+        "Microsoft Launcher lets you log in with your personal Microsoft account",
+        "Some Phone Link features, and the resulting data that is synced",
+        "To enrich your experience when playing music, Media Player will automatically attempt"
+      ],
+      "forbiddenPhrases": []
+    },
+    {
+      "name": "myntra",
+      "url": "https://www.myntra.com/privacypolicy",
+      "note": "Client-rendered: the visible HTML holds only store navigation; the policy ships as Markdown in embedded page data.",
+      "requiredHeadings": [
+        "Collection And Purpose",
+        "Sharing",
+        "Security Precautions",
+        "Use of Children Information",
+        "Data Retention",
+        "Your Rights",
+        "Grievance Officer"
+      ],
+      "requiredPhrases": [
+        "This Privacy Policy describes how Myntra Designs Private Limited",
+        "We collect your personal data directly from you",
+        "We may share your personal data internally within the Flipkart Group",
+        "We retain your personal data for a period no longer than is required",
+        "please contact us at the contact information provided above"
+      ],
+      "forbiddenPhrases": ["Get 20% Off", "Casual Shirts", "Konkani", "](http"]
+    }
+  ]
+}

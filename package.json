@@ -1,0 +1,47 @@
+{
+  "name": "privaudit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test src/lib/*.test.ts",
+    "test:e2e": "node node_modules/@playwright/test/cli.js test",
+    "test:db": "node --env-file-if-exists=.env.local --test tests/integration/*.test.ts",
+    "browser:install": "node node_modules/playwright/cli.js install chromium --only-shell",
+    "db:generate": "node node_modules/prisma/build/index.js generate",
+    "db:local": "node node_modules/prisma/build/index.js dev --name privaudit --port 51213 --db-port 54329 --shadow-db-port 54330",
+    "db:migrate": "node --env-file-if-exists=.env.local node_modules/prisma/build/index.js migrate dev",
+    "db:deploy": "node --env-file-if-exists=.env.local node_modules/prisma/build/index.js migrate deploy",
+    "reports:purge": "node --env-file-if-exists=.env.local scripts/purge-reports.ts",
+    "reports:remove": "node --env-file-if-exists=.env.local scripts/remove-report.ts",
+    "eval:policies": "node --env-file-if-exists=.env.local scripts/eval-policies.ts"
+  },
+  "dependencies": {
+    "@fontsource/dm-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@prisma/client": "^6.19.3",
+    "cheerio": "^1.2.0",
+    "franc-min": "^6.2.0",
+    "ipaddr.js": "^2.5.0",
+    "lucide-react": "^1.65.0",
+    "next": "16.4.3",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.3",
+    "prisma": "^6.19.3",
+    "typescript": "^5"
+  }
+}

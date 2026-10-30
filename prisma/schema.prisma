@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PublicReport {
+  id           String   @id
+  organization String
+  domain       String
+  report       Json
+  createdAt    DateTime @default(now())
+  expiresAt    DateTime
+  removalHash  String
+
+  @@index([expiresAt])
+  @@index([domain])
+}
+
+model QuotaBucket {
+  key       String   @id
+  used      Int      @default(0)
+  expiresAt DateTime
+
+  @@index([expiresAt])
+}
